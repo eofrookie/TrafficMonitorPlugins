@@ -16,8 +16,10 @@ GP GP::m_instance;
 
 GP::GP()
 {
+
     m_items = vector<GPItem>(GP_ITEM_MAX);
     fill(m_items.begin(), m_items.end(), GPItem());
+    LogX(_T("test"));
     for (int index = 0; index < m_items.size(); index++)
     {
         m_items[index].index = index;

@@ -13,17 +13,17 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="PluginTemplate">
-      <UniqueIdentifier>{b1276a30-5a2e-4c44-a72b-a85f342a1e8e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="PluginTemplateItem">
-      <UniqueIdentifier>{dea0bd8c-eff4-48bb-913e-262140be1154}</UniqueIdentifier>
-    </Filter>
     <Filter Include="DataManager">
       <UniqueIdentifier>{3e0d6e21-34df-4eaa-a06c-8362935b6899}</UniqueIdentifier>
     </Filter>
     <Filter Include="对话框">
       <UniqueIdentifier>{6c31e635-2c3b-4a9d-b8da-3497016dae84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Memorandum">
+      <UniqueIdentifier>{b1276a30-5a2e-4c44-a72b-a85f342a1e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MemorandumItem">
+      <UniqueIdentifier>{dea0bd8c-eff4-48bb-913e-262140be1154}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -33,11 +33,11 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="PluginTemplate.h">
-      <Filter>PluginTemplate</Filter>
+    <ClInclude Include="Memorandum.h">
+      <Filter>Memorandum</Filter>
     </ClInclude>
-    <ClInclude Include="PluginTemplateItem.h">
-      <Filter>PluginTemplateItem</Filter>
+    <ClInclude Include="MemorandumTimeItem.h">
+      <Filter>MemorandumItem</Filter>
     </ClInclude>
     <ClInclude Include="DataManager.h">
       <Filter>DataManager</Filter>
@@ -51,16 +51,22 @@
     <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MemorandumEventItem.h">
+      <Filter>MemorandumItem</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingDlg.h">
+      <Filter>对话框</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="PluginTemplate.cpp">
-      <Filter>PluginTemplate</Filter>
+    <ClCompile Include="Memorandum.cpp">
+      <Filter>Memorandum</Filter>
     </ClCompile>
-    <ClCompile Include="PluginTemplateItem.cpp">
-      <Filter>PluginTemplateItem</Filter>
+    <ClCompile Include="MemorandumTimeItem.cpp">
+      <Filter>MemorandumItem</Filter>
     </ClCompile>
     <ClCompile Include="DataManager.cpp">
       <Filter>DataManager</Filter>
@@ -71,9 +77,15 @@
     <ClCompile Include="OptionsDlg.cpp">
       <Filter>对话框</Filter>
     </ClCompile>
+    <ClCompile Include="MemorandumEventItem.cpp">
+      <Filter>MemorandumItem</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingDlg.cpp">
+      <Filter>对话框</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="PluginTemplate.rc">
+    <ResourceCompile Include="Memorandum.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>

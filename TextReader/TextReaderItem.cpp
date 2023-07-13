@@ -41,6 +41,16 @@ int CTextReaderItem::GetItemWidth() const
     return g_data.m_setting_data.window_width;
 }
 
+/**
+ * 将内容显示到任务栏上.
+ * 
+ * \param hDC
+ * \param x
+ * \param y
+ * \param w
+ * \param h
+ * \param dark_mode
+ */
 void CTextReaderItem::DrawItem(void* hDC, int x, int y, int w, int h, bool dark_mode)
 {
     g_data.m_draw_width = w;

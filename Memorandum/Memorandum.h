@@ -1,29 +1,33 @@
 ﻿#pragma once
 #include "PluginInterface.h"
-#include "PluginTemplateItem.h"
+#include "MemorandumTimeItem.h"
+#include "MemorandumEventItem.h"
 #include <string>
 
-class CPluginTemplate : public ITMPlugin
+class CMemorandum : public ITMPlugin
 {
 private:
-    CPluginTemplate();
+    CMemorandum();
 
 public:
-    static CPluginTemplate& Instance();
-
+    static CMemorandum& Instance();
+    
     virtual IPluginItem* GetItem(int index) override;
     virtual const wchar_t* GetTooltipInfo() override;
     virtual void DataRequired() override;
     virtual OptionReturn ShowOptionsDialog(void* hParent) override;
     virtual const wchar_t* GetInfo(PluginInfoIndex index) override;
     virtual void OnExtenedInfo(ExtendedInfoIndex index, const wchar_t* data) override;
+    void ShowContextMenu(CWnd* pWnd);
+    void LoadContextMenu();
+
 
 private:
-
-private:
-    static CPluginTemplate m_instance;
-    CPluginTemplateItem m_item;
+    static CMemorandum m_instance;
+    CMemorandumTimeItem m_time_item;
+    CMemorandumEventItem m_event_item;
     std::wstring m_tooltip_info;
+    CMenu m_menu;
 };
 
 #ifdef __cplusplus

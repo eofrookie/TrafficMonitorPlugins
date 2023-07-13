@@ -50,13 +50,33 @@ END
 // Dialog
 //
 
-IDD_OPTIONS_DIALOG DIALOGEX 0, 0, 194, 135
+IDD_OPTIONS_DIALOG DIALOGEX 0, 0, 237, 155
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "设置"
+CAPTION "备忘录"
 FONT 9, "微软雅黑", 400, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,80,114,50,14
-    PUSHBUTTON      "取消",IDCANCEL,137,114,50,14
+    DEFPUSHBUTTON   "确定",IDOK,123,134,50,14
+    PUSHBUTTON      "取消",IDCANCEL,180,134,50,14
+    PUSHBUTTON      "添加",IDC_MGR_ADD_BTN,63,105,50,14
+    PUSHBUTTON      "删除",IDC_MGR_DEL_BTN,120,105,50,14
+    LISTBOX         IDC_MGR_LIST,7,7,223,94,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_WINDOW_WIDTH_EDIT,50,128,50,12,ES_AUTOHSCROLL
+    LTEXT           "窗口宽度：",IDC_STATIC1,14,129,36,8
+END
+
+IDD_SETTING_DIALOG DIALOGEX 0, 0, 221, 115
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "事件管理"
+FONT 9, "微软雅黑", 400, 0, 0x86
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,90,94,50,14
+    PUSHBUTTON      "取消",IDCANCEL,155,94,50,14
+    EDITTEXT        IDC_START_TIME_EDIT,51,14,50,12,ES_AUTOHSCROLL
+    LTEXT           "开始时间：",IDC_STATIC2,14,14,36,8
+    LTEXT           "事情：",IDC_STATIC4,15,33,28,8
+    EDITTEXT        IDC_EVENT_EDIT,42,31,165,61,ES_AUTOHSCROLL
+    LTEXT           "结束时间：",IDC_STATIC3,109,16,36,8
+    EDITTEXT        IDC_END_TIME_EDIT,144,14,50,12,ES_AUTOHSCROLL
 END
 
 
@@ -71,9 +91,17 @@ BEGIN
     IDD_OPTIONS_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 187
+        RIGHTMARGIN, 230
         TOPMARGIN, 7
-        BOTTOMMARGIN, 128
+        BOTTOMMARGIN, 148
+    END
+
+    IDD_SETTING_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 214
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 108
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -84,19 +112,30 @@ END
 // AFX_DIALOG_LAYOUT
 //
 
-IDD_OPTIONS_DIALOG AFX_DIALOG_LAYOUT
-BEGIN
-    0,
-    100, 100, 0, 0,
-    100, 100, 0, 0
-END
-
 IDD_SELECT_CITY_DIALOG AFX_DIALOG_LAYOUT
 BEGIN
     0,
     100, 100, 0, 0,
     100, 100, 0, 0,
     0, 0, 100, 100,
+    0, 0, 0, 0
+END
+
+IDD_OPTIONS_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_SETTING_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0,
+    100, 100, 0, 0,
+    100, 100, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
     0, 0, 0, 0
 END
 
@@ -142,14 +181,29 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Menu
+//
+
+IDR_MENU1 MENU
+BEGIN
+    POPUP "1"
+    BEGIN
+        MENUITEM "管理备忘录(O)",                    ID_OPTIONS
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // String Table
 //
 
 STRINGTABLE
 BEGIN
-    IDS_PLUGIN_NAME         "<TODO: 插件名称>"
-    IDS_PLUGIN_DESCRIPTION  "<TODO: 插件描述>"
-    IDS_PLUGIN_ITEM_NAME    "<TODO: 插件项目名>"
+    IDS_PLUGIN_NAME         "备忘录插件"
+    IDS_PLUGIN_DESCRIPTION  "用于记录需要做的事情的插件"
+    IDS_PLUGIN_ITEM_NAME1   "备忘录时间"
+    IDS_PLUGIN_ITEM_NAME2   "备忘录事件"
 END
 
 #endif    // 中文(简体，中国) resources
@@ -165,59 +219,15 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Dialog
-//
-
-IDD_OPTIONS_DIALOG DIALOGEX 0, 0, 194, 135
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Settings"
-FONT 9, "Segoe UI", 400, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,80,114,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,137,114,50,14
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
-BEGIN
-    IDD_OPTIONS_DIALOG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 187
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 128
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AFX_DIALOG_LAYOUT
-//
-
-IDD_OPTIONS_DIALOG AFX_DIALOG_LAYOUT
-BEGIN
-    0
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // String Table
 //
 
 STRINGTABLE
 BEGIN
-    IDS_PLUGIN_NAME         "<TODO: plugin name>"
-    IDS_PLUGIN_DESCRIPTION  "<TODO: plugin template>"
-    IDS_PLUGIN_ITEM_NAME    "<TODO: plugin name>"
+    IDS_PLUGIN_NAME         "Plugin of Memorandum"
+    IDS_PLUGIN_DESCRIPTION  "Plugin of Memorandum"
+    IDS_PLUGIN_ITEM_NAME1   "Memorandum Time"
+    IDS_PLUGIN_ITEM_NAME2   "Memorandum Event"
 END
 
 #endif    // 英语(美国) resources
